@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+body {
+  font-family: 'Montserrat', serif;
+  font-optical-sizing: auto;
+  background-color: #f5f0f0;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.bg-org {
+  background-color: #ff5252;
+}
+
+.header {
+  padding-top: 20px;
+}
+
+header .top-strip {
+}
+
+.link:hover {
+  color: #ff5252;
+}
