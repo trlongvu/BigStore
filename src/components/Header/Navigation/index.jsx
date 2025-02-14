@@ -52,7 +52,7 @@ const Navigation = () => {
                         </Button>
                       </Link>
                     </li>
-                    <li className=" list-none">
+                    <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
                           Thời trang Nữ
@@ -60,14 +60,14 @@ const Navigation = () => {
                       </Link>
                     </li>
 
-                    <li className=" list-none">
+                    <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
                           Thời trang Trung niên
                         </Button>
                       </Link>
                     </li>
-                    <li className=" list-none">
+                    <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
                           Thời trang Trẻ em
