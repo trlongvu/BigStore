@@ -9,7 +9,7 @@ import BannerBox from '../BannerBox';
 
 const AdsBannerSlider = (props) => {
   return (
-    <div className=" py-10 w-full">
+    <div className=" pt-10 w-full">
       <Swiper
         slidesPerView={props.items}
         spaceBetween={30}

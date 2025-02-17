@@ -7,11 +7,12 @@ import { MdZoomOutMap } from 'react-icons/md';
 import { IoMdGitCompare } from 'react-icons/io';
 import { FaRegHeart } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-const ProductItem = () => {
+const ProductItemListView = () => {
   return (
-    <div className="productItem rounded-md overflow-hidden shadow-md border border-[rgba(0,0,0,0.1)]">
-      <div className="group imgWrapper w-[100%] overflow-hidden rounded-md  relative">
+    <div className="productItem rounded-md overflow-hidden shadow-md border border-[rgba(0,0,0,0.1)] flex items-center pl-2">
+      <div className="group imgWrapper w-[25%] overflow-hidden rounded-md  relative">
         <Link to="/">
           <div className="img h-56 overflow-hidden">
             <img
@@ -54,15 +55,21 @@ const ProductItem = () => {
           </Button>
         </div>
       </div>
-      <div className="info p-3">
+      <div className="info p-3 w-[75%] px-8">
         <Link to="/" className=" link transition-all">
-          <h6 className=" text-[13px] uppercase">Rare Rabbit</h6>
+          <h6 className=" text-sm uppercase">Rare Rabbit</h6>
         </Link>
-        <h3 className=" text-sm title my-1 font-[500] text-black">
+        <h3 className=" text-lg title my-2 font-[500] text-black">
           <Link to="/" className=" link transition-all">
             Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
           </Link>
         </h3>
+        <p className=" text-sm mb-3">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
         <Rating name="size-small" defaultValue={3} size="small" readOnly />
         <div className=" flex items-center gap-4">
           <span className="oldPrice line-through text-sm text-gray-500">
@@ -72,9 +79,14 @@ const ProductItem = () => {
             240.000đ
           </span>
         </div>
+        <div className=" mt-3">
+          <Button className=" btn-org flex items-center gap-2">
+            <AiOutlineShoppingCart className=" text-lg" /> Thêm vào giỏ
+          </Button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProductItem;
+export default ProductItemListView;

@@ -6,7 +6,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Navigation } from 'swiper/modules';
-import { Link } from 'react-router-dom';
 import ProductItem from '../ProductItem';
 
 const ProductsSlider = (props) => {
