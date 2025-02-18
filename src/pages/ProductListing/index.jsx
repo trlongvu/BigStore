@@ -9,6 +9,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ProductItemListView from '../../components/ProductItemListView';
+import Pagination from '@mui/material/Pagination';
 
 const ProductListing = () => {
   const [itemView, setItemView] = useState('grid');
@@ -151,6 +152,9 @@ const ProductListing = () => {
                   <ProductItemListView />
                 </>
               )}
+            </div>
+            <div className=" flex items-center justify-center mt-10">
+              <Pagination count={10} />
             </div>
           </div>
         </div>
