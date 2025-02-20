@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
@@ -7,12 +7,14 @@ import { MdZoomOutMap } from 'react-icons/md';
 import { IoMdGitCompare } from 'react-icons/io';
 import { FaRegHeart } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip';
+import { MyContext } from '../../App';
 
 const ProductItem = () => {
+  const context = useContext(MyContext);
   return (
     <div className="productItem rounded-md overflow-hidden shadow-md border border-[rgba(0,0,0,0.1)]">
       <div className="group imgWrapper w-[100%] overflow-hidden rounded-md  relative">
-        <Link to="/">
+        <Link to="/product/444">
           <div className="img h-56 overflow-hidden">
             <img
               src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781297/1736781294242_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-0-202311201747.jpg"
@@ -31,7 +33,10 @@ const ProductItem = () => {
         </span>
 
         <div className="actions absolute top-[-200px] right-0 z-50 flex items-center gap-2 flex-col w-12 transition-all duration-400 ease-in-out opacity-50 group-hover:opacity-100 group-hover:top-[15px] ">
-          <Button className=" !size-8 !min-w-8 !rounded-full !bg-white text-black hover:!bg-[#ff5252] hover:text-white group ">
+          <Button
+            className=" !size-8 !min-w-8 !rounded-full !bg-white text-black hover:!bg-[#ff5252] hover:text-white group "
+            onClick={() => context.setOpenProductDetailsModel(true)}
+          >
             <Tooltip title="Phóng to" placement="right" arrow>
               <MdZoomOutMap className=" text-lg p-2 min-h-8 min-w-8 !text-black group-hover:text-white hover:!text-white" />
             </Tooltip>
@@ -59,7 +64,7 @@ const ProductItem = () => {
           <h6 className=" text-[13px] uppercase">Rare Rabbit</h6>
         </Link>
         <h3 className=" text-sm title my-1 font-[500] text-black">
-          <Link to="/" className=" link transition-all">
+          <Link to="/product/444" className=" link transition-all">
             Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
           </Link>
         </h3>

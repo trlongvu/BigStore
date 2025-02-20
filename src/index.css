@@ -139,3 +139,20 @@ input[type='number']::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
 }
+.reviewScroll::-webkit-scrollbar {
+  width: 5px !important;
+}
+.reviewScroll::-webkit-scrollbar-thumb {
+  background-color: #ccc !important;
+}
+
+/* .productDetailsModel .MuiDialogContent-root {
+  padding: 0 !important;
+} */
+
+.css-1ew92b2-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: #ff5252 !important;
+}
+.css-5h82ro-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: 2px solid #ff5252 !important;
+}

@@ -32,7 +32,7 @@ const CategoryCollapse = () => {
       <div className="scroll">
         <ul className="w-full">
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Thời trang
               </Button>
@@ -163,7 +163,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Thiết bị điện tử
               </Button>
@@ -214,7 +214,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Túi sách
               </Button>
@@ -258,7 +258,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Giày dép
               </Button>
@@ -266,7 +266,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Đồ ăn
               </Button>
@@ -274,7 +274,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Làm đẹp
               </Button>
@@ -282,7 +282,7 @@ const CategoryCollapse = () => {
           </li>
 
           <li className="list-none flex items-center relative flex-col">
-            <Link to="/" className=" w-full">
+            <Link to="/productListing" className=" w-full">
               <Button className=" w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,.87)]">
                 Sức khỏe
               </Button>

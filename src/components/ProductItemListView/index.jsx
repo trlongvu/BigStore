@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
@@ -8,8 +8,10 @@ import { IoMdGitCompare } from 'react-icons/io';
 import { FaRegHeart } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { MyContext } from '../../App';
 
 const ProductItemListView = () => {
+  const context = useContext(MyContext);
   return (
     <div className="productItem rounded-md overflow-hidden shadow-md border border-[rgba(0,0,0,0.1)] flex items-center pl-2">
       <div className="group imgWrapper w-[25%] overflow-hidden rounded-md  relative">
@@ -32,7 +34,10 @@ const ProductItemListView = () => {
         </span>
 
         <div className="actions absolute top-[-200px] right-0 z-50 flex items-center gap-2 flex-col w-12 transition-all duration-400 ease-in-out opacity-50 group-hover:opacity-100 group-hover:top-[15px] ">
-          <Button className=" !size-8 !min-w-8 !rounded-full !bg-white text-black hover:!bg-[#ff5252] hover:text-white group ">
+          <Button
+            className=" !size-8 !min-w-8 !rounded-full !bg-white text-black hover:!bg-[#ff5252] hover:text-white group "
+            onClick={() => context.setOpenProductDetailsModel(true)}
+          >
             <Tooltip title="Phóng to" placement="right" arrow>
               <MdZoomOutMap className=" text-lg p-2 min-h-8 min-w-8 !text-black group-hover:text-white hover:!text-white" />
             </Tooltip>

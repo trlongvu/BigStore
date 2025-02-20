@@ -25,7 +25,7 @@ const Footer = () => {
               <h3 className=" text-lg font-semibold mt-3">
                 Miễn phí vận chuyển
               </h3>
-              <p className=" text-[13px] font-medium group-hover:text-[#ff5252]">
+              <p className=" !text-center text-[13px] font-medium group-hover:text-[#ff5252]">
                 Cho tất cả đơn hàng có giá trị từ 500.000đ
               </p>
             </div>
@@ -33,28 +33,28 @@ const Footer = () => {
             <div className=" w-[20%] col flex items-center justify-center text-center flex-col group">
               <PiKeyReturnLight className=" text-6xl group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1" />
               <h3 className=" text-lg font-semibold mt-3">Hoàn trả</h3>
-              <p className=" text-[13px] font-medium group-hover:text-[#ff5252]">
+              <p className=" !text-center text-[13px] font-medium group-hover:text-[#ff5252]">
                 Cho đơn hàng mua trong vòng 30 ngày
               </p>
             </div>
             <div className=" w-[20%] col flex items-center justify-center text-center flex-col group">
               <IoWalletOutline className=" text-6xl group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1" />
               <h3 className=" text-lg font-semibold mt-3">Thanh toán</h3>
-              <p className=" text-[13px] font-medium group-hover:text-[#ff5252]">
+              <p className=" !text-center text-[13px] font-medium group-hover:text-[#ff5252]">
                 Thanh toán bằng thẻ nhanh chóng
               </p>
             </div>
             <div className=" w-[20%] col flex items-center justify-center text-center flex-col group">
               <LiaGiftSolid className=" text-6xl group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1" />
               <h3 className=" text-lg font-semibold mt-3">Quà tặng</h3>
-              <p className=" text-[13px] font-medium group-hover:text-[#ff5252]">
+              <p className=" !text-center text-[13px] font-medium group-hover:text-[#ff5252]">
                 Phần quả hấp dẫn cho đơn hàng đầu tiên
               </p>
             </div>
             <div className=" w-[20%] col flex items-center justify-center text-center flex-col group">
               <BiSupport className=" text-6xl group-hover:text-[#ff5252] transition-all duration-300 group-hover:-translate-y-1" />
               <h3 className=" text-lg font-semibold mt-3">Hỗ trợ 24/7</h3>
-              <p className=" text-[13px] font-medium group-hover:text-[#ff5252]">
+              <p className=" !text-center text-[13px] font-medium group-hover:text-[#ff5252]">
                 Liên hệ mọi lúc
               </p>
             </div>
@@ -159,11 +159,11 @@ const Footer = () => {
                   className=" w-full h-[45px] border border-[rgba(0,0,0,0.4)] outline-none px-4 rounded-sm mb-4 focus:border-[#000]"
                   placeholder="Nhập email của bạn"
                 />
-                <Button className=" btn-org">Đăng ký</Button>
+                <Button className=" btn-org !mb-3">Đăng ký</Button>
 
                 <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Tôi đồng ý với các điều khoản và điều kiện và chính sách bảo mật"
+                  control={<Checkbox defaultChecked size="small" />}
+                  label="Tôi đồng ý với các điều khoản và chính sách bảo mật"
                 />
               </form>
             </div>

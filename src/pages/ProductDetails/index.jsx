@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 import ProductZoom from '../../components/ProductZoom';
 import Rating from '@mui/material/Rating';
 import { Button } from '@mui/material';
-import QtyBox from '../../components/QtyBox';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { FaRegHeart } from 'react-icons/fa';
-import { IoMdGitCompare } from 'react-icons/io';
+import TextField from '@mui/material/TextField';
+import ProductsSlider from '../../components/ProductsSlider';
+import ProductDetailsComponent from '../../components/ProductDetails';
 
 const ProductDetails = () => {
-  const [productActionIndex, setProductActionIndex] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   return (
     <>
@@ -49,127 +47,8 @@ const ProductDetails = () => {
           <div className="productZoomContainer w-[40%] h-[70vh] overflow-hidden">
             <ProductZoom />
           </div>
-          <div className="productContent w-[60%]">
-            <h1 className=" text-[22px] font-semibold mb-3">
-              Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
-            </h1>
-            <div className=" flex items-center gap-3">
-              <span className=" text-gray-500 text-[13px]">
-                Thương hiệu:{' '}
-                <span className=" font-semibold text-black uppercase">
-                  RARE RABBIT
-                </span>
-              </span>
-              <Rating
-                name="size-small"
-                defaultValue={3}
-                size="small"
-                readOnly
-              />
-              <span className="link text-[13px] text-gray-600 cursor-pointer">
-                Bình luận: (7)
-              </span>
-            </div>
-            <div className=" flex items-center gap-4 mt-4">
-              <span className="oldPrice line-through text-sm text-gray-500">
-                280.000đ
-              </span>
-              <span className="newPrice text-primary text-sm font-semibold">
-                240.000đ
-              </span>
-
-              <span className=" text-sm">
-                Sản phẩm có sẵn:{' '}
-                <span className=" text-green-600 font-semibold">
-                  144 sản phẩm
-                </span>
-              </span>
-            </div>
-            <p className=" mt-4 mb-5">
-              Có nhiều biến thể của các đoạn văn bản Lorem Ipsum, nhưng phần lớn
-              đã bị thay đổi ở một số dạng, bằng cách thêm yếu tố hài hước, hoặc
-              các từ ngẫu nhiên trông không đáng tin chút nào. Nếu bạn định sử
-              dụng một đoạn văn bản Lorem Ipsum, bạn cần đảm bảo rằng không có
-              bất kỳ điều gì đáng xấu hổ ẩn ở giữa văn bản. Tất cả các trình tạo
-              Lorem Ipsum trên Internet có xu hướng lặp lại các đoạn được xác
-              định trước khi cần thiết, khiến đây trở thành trình tạo thực sự
-              đầu tiên trên Internet.
-            </p>
-            <div className=" flex items-center gap-3">
-              <span>Kích thước: </span>
-              <div className=" flex items-center gap-1 actions">
-                <Button
-                  className={`${
-                    productActionIndex === 0 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(0)}
-                >
-                  S
-                </Button>
-                <Button
-                  className={`${
-                    productActionIndex === 1 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(1)}
-                >
-                  M
-                </Button>
-                <Button
-                  className={`${
-                    productActionIndex === 2 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(2)}
-                >
-                  L
-                </Button>
-                <Button
-                  className={`${
-                    productActionIndex === 3 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(3)}
-                >
-                  XL
-                </Button>
-                <Button
-                  className={`${
-                    productActionIndex === 4 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(4)}
-                >
-                  2XL
-                </Button>
-                <Button
-                  className={`${
-                    productActionIndex === 5 ? '!bg-[#ff5252] !text-white' : ''
-                  }`}
-                  onClick={() => setProductActionIndex(5)}
-                >
-                  Không giới hạn
-                </Button>
-              </div>
-            </div>
-            <p className=" text-sm mt-4">
-              Miễn phí vận chuyển (Giao hàng chậm nhất vào 12-05-2025)
-            </p>
-            <div className=" flex items-center gap-3 mt-4 group">
-              <div className="qtyBoxWrapper w-20">
-                <QtyBox />
-              </div>
-              <Button className=" flex items-center !p-2 !text-sm gap-2 !border !border-[rgba(0,0,0,0.1)] btn-org ">
-                <AiOutlineShoppingCart className=" text-lg" /> Thêm vào giỏ
-              </Button>
-            </div>
-            <div className=" flex items-center gap-16 mt-4">
-              <span className=" flex items-center gap-2 text-[16px] cursor-pointer link font-medium">
-                <FaRegHeart className=" text-lg" />
-                Yêu thích
-              </span>
-
-              <span className=" flex items-center gap-2 text-[16px] cursor-pointer link font-medium">
-                <IoMdGitCompare className=" text-lg" />
-                So sánh
-              </span>
-            </div>
+          <div className="productContent w-[60%] pl-5">
+            <ProductDetailsComponent />
           </div>
         </div>
 
@@ -244,47 +123,72 @@ const ProductDetails = () => {
           )}
 
           {activeTab === 1 && (
-            <div class="relative overflow-x-auto">
-              <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                  <tr>
-                    <th scope="col" class="px-6 py-3">
+            <div class="relative overflow-x-auto shadow-md">
+              <table class="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-300 border-collapse border border-gray-300 dark:border-gray-600">
+                <tbody>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Tên sản phẩm
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                      Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Thương hiệu
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4">RARE RABBIT</td>
+                  </tr>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Màu sắc
                     </th>
-
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4">Xanh</td>
+                  </tr>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Giá bán
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4 text-red-500 font-bold">240.000đ</td>
+                  </tr>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Chất liệu
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4">Jean</td>
+                  </tr>
+                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Loại
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <td class="px-6 py-4">Thời trang</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                    >
                       Style
                     </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                    <th
-                      scope="row"
-                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
-                    </th>
-                    <td class="px-6 py-4">RARE RABBIT</td>
-                    <td class="px-6 py-4">Xanh</td>
-                    <td class="px-6 py-4">240.000đ</td>
-                    <td class="px-6 py-4">Jean</td>
-                    <td class="px-6 py-4">Thời trang</td>
                     <td class="px-6 py-4">
                       Phong cách trẻ trung, phù hợp cho các buổi tiệc, gặp gỡ
                       bạn bè
@@ -294,6 +198,165 @@ const ProductDetails = () => {
               </table>
             </div>
           )}
+
+          {activeTab === 2 && (
+            <div className=" shadow-md w-[80%] p-5 rounded-md">
+              <div className=" w-full productReviewsContainer">
+                <h2 className=" text-xl font-semibold">
+                  Đặt câu hỏi cho sản phẩm
+                </h2>
+                <div className=" reviewScroll w-full max-h-80 overflow-y-scroll overflow-x-hidden ml-4 pr-5">
+                  <div className=" review pb-5 border-b border-b-[rgba(0,0,0,0.1)] w-full flex items-center justify-between mt-5">
+                    <div className="info w-[60%] flex items-center gap-3">
+                      <div className="img size-20 overflow-hidden rounded-full">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzFagc0G6d1opo0x0DIPZtWE087ymFeUehA&s"
+                          alt="avatar"
+                          className=" w-full"
+                        />
+                      </div>
+                      <div className=" w-[80%]">
+                        <div className=" flex items-center gap-12">
+                          <h4 className=" text-[16px] font-semibold">Rosé</h4>
+                          <h5 className=" text-xs font-semibold text-primary">
+                            14/2/2025
+                          </h5>
+                        </div>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry.
+                        </p>
+                      </div>
+                    </div>
+                    <Rating name="size-small" defaultValue={3} readOnly />
+                  </div>
+                  <div className=" review pb-5 border-b border-b-[rgba(0,0,0,0.1)] w-full flex items-center justify-between mt-5">
+                    <div className="info w-[60%] flex items-center gap-3">
+                      <div className="img size-20 overflow-hidden rounded-full">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzFagc0G6d1opo0x0DIPZtWE087ymFeUehA&s"
+                          alt="avatar"
+                          className=" w-full"
+                        />
+                      </div>
+                      <div className=" w-[80%]">
+                        <div className=" flex items-center gap-12">
+                          <h4 className=" text-[16px] font-semibold">Rosé</h4>
+                          <h5 className=" text-xs font-semibold text-primary">
+                            14/2/2025
+                          </h5>
+                        </div>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry.
+                        </p>
+                      </div>
+                    </div>
+                    <Rating name="size-small" defaultValue={3} readOnly />
+                  </div>
+                  <div className=" review pb-5 border-b border-b-[rgba(0,0,0,0.1)] w-full flex items-center justify-between mt-5">
+                    <div className="info w-[60%] flex items-center gap-3">
+                      <div className="img size-20 overflow-hidden rounded-full">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzFagc0G6d1opo0x0DIPZtWE087ymFeUehA&s"
+                          alt="avatar"
+                          className=" w-full"
+                        />
+                      </div>
+                      <div className=" w-[80%]">
+                        <div className=" flex items-center gap-12">
+                          <h4 className=" text-[16px] font-semibold">Rosé</h4>
+                          <h5 className=" text-xs font-semibold text-primary">
+                            14/2/2025
+                          </h5>
+                        </div>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry.
+                        </p>
+                      </div>
+                    </div>
+                    <Rating name="size-small" defaultValue={3} readOnly />
+                  </div>
+                  <div className=" review pb-5 border-b border-b-[rgba(0,0,0,0.1)] w-full flex items-center justify-between mt-5">
+                    <div className="info w-[60%] flex items-center gap-3">
+                      <div className="img size-20 overflow-hidden rounded-full">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzFagc0G6d1opo0x0DIPZtWE087ymFeUehA&s"
+                          alt="avatar"
+                          className=" w-full"
+                        />
+                      </div>
+                      <div className=" w-[80%]">
+                        <div className=" flex items-center gap-12">
+                          <h4 className=" text-[16px] font-semibold">Rosé</h4>
+                          <h5 className=" text-xs font-semibold text-primary">
+                            14/2/2025
+                          </h5>
+                        </div>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry.
+                        </p>
+                      </div>
+                    </div>
+                    <Rating name="size-small" defaultValue={3} readOnly />
+                  </div>
+                  <div className=" review pb-5 border-b border-b-[rgba(0,0,0,0.1)] w-full flex items-center justify-between mt-5">
+                    <div className="info w-[60%] flex items-center gap-3">
+                      <div className="img size-20 overflow-hidden rounded-full">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzFagc0G6d1opo0x0DIPZtWE087ymFeUehA&s"
+                          alt="avatar"
+                          className=" w-full"
+                        />
+                      </div>
+                      <div className=" w-[80%]">
+                        <div className=" flex items-center gap-12">
+                          <h4 className=" text-[16px] font-semibold">Rosé</h4>
+                          <h5 className=" text-xs font-semibold text-primary">
+                            14/2/2025
+                          </h5>
+                        </div>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry.
+                        </p>
+                      </div>
+                    </div>
+                    <Rating name="size-small" defaultValue={3} readOnly />
+                  </div>
+                </div>
+
+                <br />
+                <div className="reviewForm bg-[#fafafa] p-4 rounded-md">
+                  <h2 className=" text-lg font-semibold mb-4">
+                    Thêm bình luận
+                  </h2>
+                  <form className=" w-full">
+                    <TextField
+                      id="outlined-multiline-flexible"
+                      label="Viết cảm nhận của bạn về sản phẩm"
+                      multiline
+                      rows={4}
+                      className=" !w-full"
+                    />
+                    <br />
+                    <br />
+                    <Rating name="size-small" defaultValue={1} />
+                    <div className=" flex items-center mt-5">
+                      <Button className=" btn-org">Gửi đánh giá</Button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="container pt-12 ">
+          <h3 className=" text-2xl font-bold uppercase">Sản phẩm tương tự</h3>
+          <ProductsSlider items={6} />
         </div>
       </section>
     </>
