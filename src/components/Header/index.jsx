@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
 import Badge from '@mui/material/Badge';
@@ -9,6 +9,7 @@ import { IoMdGitCompare } from 'react-icons/io';
 import { FaHeart } from 'react-icons/fa6';
 import Tooltip from '@mui/material/Tooltip';
 import Navigation from './Navigation';
+import { MyContext } from '../../App';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -20,6 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 const Header = () => {
+  const context = useContext(MyContext);
   return (
     <header className=" bg-white">
       <div className="top-strip py-2 border-b border-gray-300">
@@ -85,7 +87,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className=" list-none">
-                <Tooltip title="Đẹp trai">
+                <Tooltip title="So sánh">
                   <IconButton aria-label="cart" className="link transition">
                     <StyledBadge badgeContent={4} color="secondary">
                       <IoMdGitCompare />
@@ -104,7 +106,11 @@ const Header = () => {
               </li>
               <li className=" list-none">
                 <Tooltip title="Giỏ hàng">
-                  <IconButton aria-label="cart" className="link transition">
+                  <IconButton
+                    aria-label="cart"
+                    className="link transition"
+                    onClick={() => context.setOpenCartPanel(true)}
+                  >
                     <StyledBadge badgeContent={4} color="secondary">
                       <FaShoppingCart />
                     </StyledBadge>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { LiaShippingFastSolid } from 'react-icons/lia';
 import { PiKeyReturnLight } from 'react-icons/pi';
 import { IoWalletOutline } from 'react-icons/io5';
@@ -7,14 +7,19 @@ import { BiSupport } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { IoChatboxOutline } from 'react-icons/io5';
 import { Button } from '@mui/material';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { TiSocialFacebook } from 'react-icons/ti';
 import { FaInstagram } from 'react-icons/fa';
 import { SiZalo } from 'react-icons/si';
+import Drawer from '@mui/material/Drawer';
+import CartPanel from '../CartPanel';
+import { MyContext } from '../../App';
+import { IoClose } from 'react-icons/io5';
 
 const Footer = () => {
+  const context = useContext(MyContext);
+
   return (
     <>
       <footer className=" py-6 bg-[#f8f8f8] pt-12 border-t border-cyan-950">
@@ -227,6 +232,23 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <Drawer
+        open={context.openCartPanel}
+        onClose={context.toggleDrawerCartPanel(false)}
+        anchor="right"
+        className="cartPanel"
+      >
+        <div className=" flex items-center justify-between gap-8 p-4 border-b border-b-[rgba(0,0,0,0.4)] overflow-hidden">
+          <h1 className=" text-lg font-medium">Giỏ hàng của tôi (5)</h1>
+          <IoClose
+            className=" text-2xl cursor-pointer"
+            onClick={context.toggleDrawerCartPanel(false)}
+          />
+        </div>
+
+        <CartPanel />
+      </Drawer>
     </>
   );
 };

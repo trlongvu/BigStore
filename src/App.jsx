@@ -8,27 +8,36 @@ import ProductDetails from './pages/ProductDetails';
 import { createContext } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import ProductZoom from './components/ProductZoom';
 import { IoClose } from 'react-icons/io5';
 import ProductDetailsComponent from './components/ProductDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import CartPage from './pages/Cart';
 
 const MyContext = createContext();
 
 function App() {
   const [openProductDetailsModel, setOpenProductDetailsModel] = useState(false);
-  const [fullWidth, setFullWidth] = React.useState(true);
-  const [maxWidth, setMaxWidth] = React.useState('lg');
+  const [fullWidth, setFullWidth] = useState(true);
+  const [maxWidth, setMaxWidth] = useState('lg');
+
+  const [openCartPanel, setOpenCartPanel] = useState(false);
+
+  const toggleDrawerCartPanel = (newOpen) => () => {
+    setOpenCartPanel(newOpen);
+  };
 
   const handleCloseProductDetailsModel = () => {
     setOpenProductDetailsModel(false);
   };
-  const values = { setOpenProductDetailsModel };
+  const values = {
+    setOpenProductDetailsModel,
+    setOpenCartPanel,
+    openCartPanel,
+    toggleDrawerCartPanel,
+  };
 
   return (
     <>
@@ -47,6 +56,7 @@ function App() {
               exact={true}
               element={<ProductDetails />}
             />
+            <Route path="/cart" exact={true} element={<CartPage />} />
             <Route path="/login" exact={true} element={<Login />} />
             <Route path="/register" exact={true} element={<Register />} />
           </Routes>
