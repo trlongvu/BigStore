@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsKey } from 'react-icons/bs';
@@ -9,14 +9,17 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import { IoEyeOff } from 'react-icons/io5';
 import { IoEye } from 'react-icons/io5';
-import { Button, Checkbox, FormControlLabel } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookSquare } from 'react-icons/fa';
-import { CiUser } from 'react-icons/ci';
+import { MyContext } from '../../App';
 
-const Register = () => {
+const ForgetPasswordPage = () => {
+  const context = useContext(MyContext);
+
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -27,32 +30,26 @@ const Register = () => {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
+
+  const handleClickShowPassword2 = () => setShowPassword2((show) => !show);
+
+  const handleMouseDownPassword2 = (event) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword2 = (event) => {
+    event.preventDefault();
+  };
+  const history = useNavigate();
+
   return (
     <section className="section py-10">
       <div className="container">
         <div className="card shadow-md w-[500px] m-auto rounded-md bg-white p-5 px-10">
           <h3 className=" font-semibold text-[16px] text-black uppercase mb-8">
-            Đăng ký tài khoản
+            Quên mật khẩu
           </h3>
           <form className=" w-full mt-5">
-            <div className=" form-group w-full mb-5 flex items-center gap-3">
-              <AiOutlineMail className=" mt-4 text-2xl" />
-              <TextField
-                id="email"
-                label="Nhập email của bạn"
-                variant="standard"
-                className=" w-full"
-              />
-            </div>
-            <div className=" form-group w-full mb-5 flex items-center gap-3">
-              <CiUser className=" mt-4 text-2xl" />
-              <TextField
-                id="username"
-                label="Nhập tên của bạn"
-                variant="standard"
-                className=" w-full"
-              />
-            </div>
             <div className=" form-group w-full mb-5 flex items-center gap-3">
               <BsKey className=" mt-4 text-2xl" />
               <FormControl
@@ -65,6 +62,7 @@ const Register = () => {
                   className=" !w-full"
                   id="password"
                   type={showPassword ? 'text' : 'password'}
+                  name="password"
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -82,37 +80,40 @@ const Register = () => {
                 />
               </FormControl>
             </div>
-
-            <FormControlLabel
-              control={
-                <Checkbox defaultChecked size="medium" className=" !ml-0.5" />
-              }
-              label="Tôi đồng ý với các điều khoản và chính sách bảo mật"
-              required
-            />
-            <div className="flex items-center mt-1 mb-5 w-full">
-              <Button className=" btn-org !w-full">Đăng ký</Button>
+            <div className=" form-group w-full mb-5 flex items-center gap-3">
+              <BsKey className=" mt-4 text-2xl" />
+              <FormControl
+                sx={{ width: '25ch' }}
+                variant="standard"
+                className=" !w-full"
+              >
+                <InputLabel htmlFor="password">Xác nhận mật khẩu</InputLabel>
+                <Input
+                  className=" !w-full"
+                  id="confirm_password"
+                  type={showPassword2 ? 'text' : 'password'}
+                  name="confirm_password"
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword2 ? 'Ẩn mật khẩu' : 'Hiển thị mật khẩu'
+                        }
+                        onClick={handleClickShowPassword2}
+                        onMouseDown={handleMouseDownPassword2}
+                        onMouseUp={handleMouseUpPassword2}
+                      >
+                        {showPassword2 ? <IoEye /> : <IoEyeOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
             </div>
-            <p className=" mb-5">
-              Đã có tài khoản?
-              <Link to="/login" className=" link font-medium">
-                {' '}
-                Đăng nhập
-              </Link>
-            </p>
-            <div className="flex items-center justify-center w-full mb-5">
-              <div className="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
 
-              <span className="mx-4 text-sm font-medium uppercase">hoặc</span>
-
-              <div className="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
-            </div>
-            <div className=" flex items-center gap-5 justify-between mx-12 mb-5">
-              <Button className=" !w-[50%] gap-5 !text-sm !border !border-[rgba(0,0,0,0.4)] !text-black">
-                <FcGoogle className=" text-lg" /> Google
-              </Button>
-              <Button className="  !w-[50%] gap-5 !text-sm !border !border-[rgba(0,0,0,0.4)] !text-black">
-                <FaFacebookSquare className=" text-blue-700 text-lg" /> Facebook
+            <div className=" flex items-center justify-center w-full my-3">
+              <Button className=" btn-org !px-12 !py-2 !normal-case">
+                Đặt lại mật khẩu
               </Button>
             </div>
           </form>
@@ -122,4 +123,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ForgetPasswordPage;

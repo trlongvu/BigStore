@@ -123,73 +123,75 @@ const ProductDetails = () => {
           )}
 
           {activeTab === 1 && (
-            <div class="relative overflow-x-auto shadow-md">
-              <table class="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-300 border-collapse border border-gray-300 dark:border-gray-600">
+            <div className="relative overflow-x-auto shadow-md">
+              <table className="w-full text-sm text-left rtl:text-right text-gray-700 dark:text-gray-300 border-collapse border border-gray-300 dark:border-gray-600">
                 <tbody>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Tên sản phẩm
                     </th>
-                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                    <td className="px-6 py-4 text-gray-900 dark:text-white">
                       Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Thương hiệu
                     </th>
-                    <td class="px-6 py-4">RARE RABBIT</td>
+                    <td className="px-6 py-4">RARE RABBIT</td>
                   </tr>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Màu sắc
                     </th>
-                    <td class="px-6 py-4">Xanh</td>
+                    <td className="px-6 py-4">Xanh</td>
                   </tr>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Giá bán
                     </th>
-                    <td class="px-6 py-4 text-red-500 font-bold">240.000đ</td>
+                    <td className="px-6 py-4 text-red-500 font-bold">
+                      240.000đ
+                    </td>
                   </tr>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Chất liệu
                     </th>
-                    <td class="px-6 py-4">Jean</td>
+                    <td className="px-6 py-4">Jean</td>
                   </tr>
-                  <tr class="border-b border-gray-300 dark:border-gray-600">
+                  <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Loại
                     </th>
-                    <td class="px-6 py-4">Thời trang</td>
+                    <td className="px-6 py-4">Thời trang</td>
                   </tr>
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Style
                     </th>
-                    <td class="px-6 py-4">
+                    <td className="px-6 py-4">
                       Phong cách trẻ trung, phù hợp cho các buổi tiệc, gặp gỡ
                       bạn bè
                     </td>

@@ -145,6 +145,12 @@ input[type='number']::-webkit-outer-spin-button {
 .reviewScroll::-webkit-scrollbar-thumb {
   background-color: #ccc !important;
 }
+.checkoutScroll::-webkit-scrollbar {
+  width: 2px !important;
+}
+.checkoutScroll::-webkit-scrollbar-thumb {
+  background-color: #ccc !important;
+}
 
 /* .productDetailsModel .MuiDialogContent-root {
   padding: 0 !important;
@@ -164,4 +170,18 @@ input[type='number']::-webkit-outer-spin-button {
 
 #size-menu .MuiButtonBase-root {
   font-size: 12px !important;
+}
+
+.otpBox input {
+  border: 1px solid rgba(0, 0, 0, 0.7) !important;
+  border-radius: 4px;
+}
+
+.otpBox input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.7) !important;
+}
+
+.otpPage .container {
+  height: 90vh;
+  display: flex;
 }

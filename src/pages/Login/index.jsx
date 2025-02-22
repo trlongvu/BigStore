@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsKey } from 'react-icons/bs';
@@ -10,12 +10,21 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { IoEyeOff } from 'react-icons/io5';
 import { IoEye } from 'react-icons/io5';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookSquare } from 'react-icons/fa';
+import { MyContext } from '../../App';
 
 const Login = () => {
+  const context = useContext(MyContext);
+
   const [showPassword, setShowPassword] = useState(false);
+  const [formField, setFormField] = useState({
+    email: '22',
+    password: '',
+  });
+
+  const history = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -25,6 +34,13 @@ const Login = () => {
 
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
+  };
+
+  const forgetPassword = () => {
+    if (formField.email !== '') {
+      history('/verify');
+      context.openAlertBox('success', 'Đã gửi mã về email của bạn');
+    }
   };
   return (
     <section className="section py-10">
@@ -37,10 +53,11 @@ const Login = () => {
             <div className=" form-group w-full mb-5 flex items-center gap-3">
               <AiOutlineMail className=" mt-4 text-2xl" />
               <TextField
-                id="input-with-sx"
+                id="email"
                 label="Nhập email của bạn"
                 variant="standard"
                 className=" w-full"
+                name="name"
               />
             </div>
             <div className=" form-group w-full mb-5 flex items-center gap-3">
@@ -55,6 +72,7 @@ const Login = () => {
                   className=" !w-full"
                   id="password"
                   type={showPassword ? 'text' : 'password'}
+                  name="password"
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -74,7 +92,10 @@ const Login = () => {
             </div>
 
             <div className=" w-full text-center">
-              <a className=" link cursor-pointer text-sm font-semibold">
+              <a
+                className=" link cursor-pointer text-sm font-semibold"
+                onClick={forgetPassword}
+              >
                 Quên mật khẩu?
               </a>
             </div>
@@ -88,12 +109,12 @@ const Login = () => {
                 Đăng ký
               </Link>
             </p>
-            <div class="flex items-center justify-center w-full mb-5">
-              <div class="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
+            <div className="flex items-center justify-center w-full mb-5">
+              <div className="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
 
-              <span class="mx-4 text-sm font-medium uppercase">hoặc</span>
+              <span className="mx-4 text-sm font-medium uppercase">hoặc</span>
 
-              <div class="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
+              <div className="flex-1 h-px bg-[rgba(0,0,0,0.4)]"></div>
             </div>
             <div className=" flex items-center gap-5 justify-between mx-12 mb-5">
               <Button className=" !w-[50%] gap-5 !text-sm !border !border-[rgba(0,0,0,0.4)] !text-black">
