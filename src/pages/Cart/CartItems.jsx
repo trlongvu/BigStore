@@ -36,8 +36,8 @@ const CartItems = (props) => {
   };
   return (
     <div className="shadow-md rounded-md bg-white mt-5">
-      <div className="cartItem w-full p-3 flex gap-4 pb-5 border-b border-b-[rgba(0,0,0,0.1)]">
-        <div className="img w-[10%] rounded-md overflow-hidden border border-[rgba(0,0,0,0.1)]">
+      <div className="cartItem w-full p-3 flex items-start gap-4 pb-5 border-b border-b-[rgba(0,0,0,0.1)]">
+        <div className="img my-auto w-[10%] rounded-md overflow-hidden border border-[rgba(0,0,0,0.1)]">
           <Link to="/product/444" className="group">
             <img
               src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/103-cart_default/pack-mug-framed-poster.jpg"
@@ -47,7 +47,7 @@ const CartItems = (props) => {
           </Link>
         </div>
         <div className="info w-[90%] relative">
-          <IoClose className=" cursor-pointer absolute top-[50%] right-2.5 text-2xl" />
+          <IoClose className=" cursor-pointer absolute top-[40%] right-2.5 text-2xl" />
           <h3>
             <Link to="/product/444" className=" link transition">
               Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
 import Badge from '@mui/material/Badge';
@@ -10,6 +10,12 @@ import { FaHeart } from 'react-icons/fa6';
 import Tooltip from '@mui/material/Tooltip';
 import Navigation from './Navigation';
 import { MyContext } from '../../App';
+import { Button } from '@mui/material';
+import { FaUser } from 'react-icons/fa';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
+import { IoLogOut } from 'react-icons/io5';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -22,13 +28,24 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 const Header = () => {
   const context = useContext(MyContext);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setTimeout(() => {
+      setAnchorEl(null);
+    }, 0);
+  };
   return (
     <header className=" bg-white">
       <div className="top-strip py-2 border-b border-gray-300">
         <div className="container">
           <div className="flex items-center justify-between">
             <div className="col1 w-[50%]">
-              <p className=" text-[12px] font-[500]">
+              <p className=" text-xs font-medium">
                 Giảm đến 50% giá trị sản phẩm
               </p>
             </div>
@@ -38,7 +55,7 @@ const Header = () => {
                 <li className=" list-none">
                   <Link
                     to="help-center"
-                    className=" text-[12px] link font-[500] transition"
+                    className=" text-xs link font-medium transition"
                   >
                     Hỗ trợ
                   </Link>
@@ -47,7 +64,7 @@ const Header = () => {
                 <li className=" list-none">
                   <Link
                     to="order-tracking"
-                    className=" text-[12px] link font-[500] transition"
+                    className=" text-xs link font-medium transition"
                   >
                     Theo dõi đơn hàng
                   </Link>
@@ -70,22 +87,114 @@ const Header = () => {
           </div>
           <div className="col3 w-[30%] flex items-center justify-around">
             <ul className="flex items-center space-x-4">
-              <li className=" list-none">
-                <Link
-                  to="login"
-                  className=" text-[12px] link font-[500] transition"
-                >
-                  Đăng nhập
-                </Link>{' '}
-                |
-                <Link
-                  to="register"
-                  className=" text-[12px] link font-[500] transition"
-                >
-                  {' '}
-                  Đăng ký
-                </Link>
-              </li>
+              {context.isLogin === false ? (
+                <li className=" list-none">
+                  <Link
+                    to="/login"
+                    className=" text-xs link font-medium transition"
+                  >
+                    Đăng nhập
+                  </Link>{' '}
+                  |
+                  <Link
+                    to="/register"
+                    className=" text-xs link font-medium transition"
+                  >
+                    {' '}
+                    Đăng ký
+                  </Link>
+                </li>
+              ) : (
+                <>
+                  <li className=" list-none">
+                    <div
+                      className=" myAccountWrap link flex items-center gap-3 group transition-all cursor-pointer"
+                      onClick={handleClick}
+                    >
+                      <Button className=" !size-8 !min-w-8 !rounded-full !bg-[#f1f1f1] ">
+                        <FaUser className=" text-lg text-[rgba(0,0,0,0.54)] group-hover:!text-[#ff5252] transition-all" />
+                      </Button>
+                      <div className="info flex flex-col">
+                        <h4 className=" font-medium text-xs">Sơn Tùng MTP</h4>
+                        <span className=" text-[10px]">
+                          sontungmtp@gmai.com
+                        </span>
+                      </div>
+                      <Menu
+                        anchorEl={anchorEl}
+                        id="account-menu"
+                        open={open}
+                        onClose={handleClose}
+                        onClick={handleClick}
+                        slotProps={{
+                          paper: {
+                            elevation: 0,
+                            sx: {
+                              overflow: 'visible',
+                              filter:
+                                'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                              mt: 1.5,
+                              '& .MuiAvatar-root': {
+                                width: 32,
+                                height: 32,
+                                ml: -0.5,
+                                mr: 1,
+                              },
+                              '&::before': {
+                                content: '""',
+                                display: 'block',
+                                position: 'absolute',
+                                top: 0,
+                                right: 14,
+                                width: 10,
+                                height: 10,
+                                bgcolor: 'background.paper',
+                                transform: 'translateY(-50%) rotate(45deg)',
+                                zIndex: 0,
+                              },
+                            },
+                          },
+                        }}
+                        transformOrigin={{
+                          horizontal: 'right',
+                          vertical: 'top',
+                        }}
+                        anchorOrigin={{
+                          horizontal: 'right',
+                          vertical: 'bottom',
+                        }}
+                      >
+                        <Link to="/my-account" onClick={handleClose}>
+                          <MenuItem className="link !text-[13px] flex items-center gap-2">
+                            <FaUser className=" text-sm" />
+                            Tài khoản
+                          </MenuItem>
+                        </Link>
+                        <Link to="/order" onClick={handleClose}>
+                          <MenuItem className="link !text-[13px] flex items-center gap-2">
+                            <FaShoppingCart className=" text-sm" />
+                            Đơn hàng
+                          </MenuItem>
+                        </Link>
+                        <Link to="/love" onClick={handleClose}>
+                          <MenuItem className="link !text-[13px] flex items-center gap-2">
+                            <FaHeart className=" text-sm" />
+                            Danh sách yêu thích
+                          </MenuItem>
+                        </Link>
+                        <Divider />
+                        <Link to="/logout" onClick={handleClose}>
+                          <MenuItem className="link !text-[13px] flex items-center gap-1">
+                            <IoLogOut className=" text-lg" />
+                            Đăng xuất
+                          </MenuItem>
+                        </Link>
+                      </Menu>
+                    </div>
+                  </li>
+                </>
+              )}
+
               <li className=" list-none">
                 <Tooltip title="So sánh">
                   <IconButton aria-label="cart" className="link transition">

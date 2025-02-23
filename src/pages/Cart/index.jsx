@@ -15,7 +15,9 @@ const CartPage = () => {
             <span className=" text-primary font-semibold">4 sản phẩm</span>{' '}
             trong giỏ hàng của bạn
           </p>
-          <CartItems size={'S'} qty={1} />
+          <CartItems size={'S'} qty={4} />
+          <CartItems size={'L'} qty={2} />
+          <CartItems size={'2XL'} qty={1} />
         </div>
         <div className="rightPart w-[25%]">
           <div className=" shadow-md rounded-md bg-white mt-[72px] p-3">
