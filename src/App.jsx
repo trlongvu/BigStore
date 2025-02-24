@@ -21,6 +21,7 @@ import ForgetPasswordPage from './pages/ForgerPassword';
 import Checkout from './pages/Checkout';
 import MyAccount from './pages/MyAccount';
 import MyList from './pages/MyList';
+import Orders from './pages/Orders';
 
 const MyContext = createContext();
 
@@ -79,6 +80,7 @@ function App() {
             <Route path="/check-out" exact={true} element={<Checkout />} />
             <Route path="/my-account" exact={true} element={<MyAccount />} />
             <Route path="/love" exact={true} element={<MyList />} />
+            <Route path="/order" exact={true} element={<Orders />} />
             <Route path="/login" exact={true} element={<Login />} />
             <Route path="/register" exact={true} element={<Register />} />
             <Route path="/verify" exact={true} element={<Verify />} />
