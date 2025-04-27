@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsKey } from 'react-icons/bs';
@@ -10,13 +10,68 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { IoEyeOff } from 'react-icons/io5';
 import { IoEye } from 'react-icons/io5';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { CiUser } from 'react-icons/ci';
+import { postData } from '../../utils/api';
+import { MyContext } from '../../App';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Register = () => {
+  const context = useContext(MyContext);
+  const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [formField, setFormField] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const onChangeInp = (e) => {
+    const { name, value } = e.target;
+    setFormField({
+      ...formField,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    if (formField.username.trim() === '') {
+      context.openAlertBox('error', 'Tên người dùng không được để trống');
+      setIsLoading(false);
+      return;
+    }
+    if (formField.email.trim() === '') {
+      context.openAlertBox('error', 'Email không được để trống');
+      setIsLoading(false);
+      return;
+    }
+    if (formField.password.trim() === '') {
+      context.openAlertBox('error', 'Mật khẩu không được để trống');
+      setIsLoading(false);
+      return;
+    }
+    postData('/api/auth/register', formField).then((res) => {
+      if (res.statusCode === 201) {
+        setIsLoading(false);
+        localStorage.setItem('emailUser', formField.email);
+        setFormField({
+          username: '',
+          email: '',
+          password: '',
+        });
+        navigate('/verify');
+      } else {
+        context.openAlertBox('error', res.message);
+        setIsLoading(false);
+      }
+    });
+  };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -34,23 +89,31 @@ const Register = () => {
           <h3 className=" font-semibold text-[16px] text-black uppercase mb-8">
             Đăng ký tài khoản
           </h3>
-          <form className=" w-full mt-5">
+          <form onSubmit={handleSubmit} className=" w-full mt-5">
             <div className=" form-group w-full mb-5 flex items-center gap-3">
               <AiOutlineMail className=" mt-4 text-2xl" />
               <TextField
                 id="email"
+                name="email"
                 label="Nhập email của bạn"
                 variant="standard"
                 className=" w-full"
+                value={formField.email}
+                disabled={isLoading}
+                onChange={onChangeInp}
               />
             </div>
             <div className=" form-group w-full mb-5 flex items-center gap-3">
               <CiUser className=" mt-4 text-2xl" />
               <TextField
                 id="username"
+                name="username"
                 label="Nhập tên của bạn"
                 variant="standard"
                 className=" w-full"
+                value={formField.username}
+                disabled={isLoading}
+                onChange={onChangeInp}
               />
             </div>
             <div className=" form-group w-full mb-5 flex items-center gap-3">
@@ -64,7 +127,11 @@ const Register = () => {
                 <Input
                   className=" !w-full"
                   id="password"
+                  name="password"
                   type={showPassword ? 'text' : 'password'}
+                  value={formField.password}
+                  disabled={isLoading}
+                  onChange={onChangeInp}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -91,7 +158,13 @@ const Register = () => {
               required
             />
             <div className="flex items-center mt-1 mb-5 w-full">
-              <Button className=" btn-org !w-full">Đăng ký</Button>
+              <Button
+                disabled={isLoading}
+                type="submit"
+                className={`${isLoading ? 'opacity-70' : ''}  btn-org !w-full`}
+              >
+                {isLoading ? <CircularProgress color="inherit" /> : 'Đăng ký'}
+              </Button>
             </div>
             <p className=" mb-5">
               Đã có tài khoản?

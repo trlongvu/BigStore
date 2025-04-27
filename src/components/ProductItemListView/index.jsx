@@ -18,12 +18,12 @@ const ProductItemListView = () => {
         <Link to="/">
           <div className="img h-56 overflow-hidden">
             <img
-              src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781297/1736781294242_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-0-202311201747.jpg"
+              src="https://khoinguonsangtao.vn/wp-content/uploads/2022/10/anh-gai-xinh-co-trang-1.jpg"
               alt=""
               className=" w-full"
             />
             <img
-              src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
+              src="https://khoinguonsangtao.vn/wp-content/uploads/2022/10/anh-gai-xinh-co-trang-trung-quoc-1.jpg"
               alt=""
               className=" w-full absolute top-0 left-0 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-105"
             />

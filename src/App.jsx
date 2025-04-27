@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -22,6 +22,8 @@ import Checkout from './pages/Checkout';
 import MyAccount from './pages/MyAccount';
 import MyList from './pages/MyList';
 import Orders from './pages/Orders';
+import { fetchDataFromApi } from './utils/api';
+import Address from './pages/MyAccount/address';
 
 const MyContext = createContext();
 
@@ -29,7 +31,21 @@ function App() {
   const [openProductDetailsModel, setOpenProductDetailsModel] = useState(false);
   const [fullWidth, setFullWidth] = useState(true);
   const [maxWidth, setMaxWidth] = useState('lg');
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token !== undefined && token !== null && token !== '') {
+      setIsLogin(true);
+      fetchDataFromApi(`/api/users/444`).then((res) => {
+        setUserData(res.data);
+      });
+    } else {
+      setIsLogin(false);
+    }
+  }, [isLogin]);
 
   const [openCartPanel, setOpenCartPanel] = useState(false);
 
@@ -57,6 +73,8 @@ function App() {
     openAlertBox,
     isLogin,
     setIsLogin,
+    userData,
+    setUserData,
   };
 
   return (
@@ -81,6 +99,7 @@ function App() {
             <Route path="/my-account" exact={true} element={<MyAccount />} />
             <Route path="/love" exact={true} element={<MyList />} />
             <Route path="/order" exact={true} element={<Orders />} />
+            <Route path="/address" exact={true} element={<Address />} />
             <Route path="/login" exact={true} element={<Login />} />
             <Route path="/register" exact={true} element={<Register />} />
             <Route path="/verify" exact={true} element={<Verify />} />

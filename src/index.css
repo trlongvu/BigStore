@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+* {
+  font-family: 'Montserrat', serif !important;
+}
+
 body {
   font-family: 'Montserrat', serif;
   font-optical-sizing: auto;
@@ -38,6 +42,19 @@ p {
 }
 .btn-org:hover {
   background-color: #171717 !important;
+}
+
+.btn-org-cancel {
+  background-color: #c4c4c4 !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  font-size: 16px;
+  padding: 7px 10px !important;
+}
+
+.btn-org-cancel:hover {
+  background-color: #171717 !important;
+  color: #fff !important;
 }
 
 .bg-org {
@@ -103,6 +120,11 @@ header .top-strip {
 .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
 .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
   color: #ff5252 !important;
+}
+
+.MuiTypography-root,
+.MuiButton-root {
+  font-family: 'Montserrat', serif !important;
 }
 
 .MuiFormControlLabel-label {
@@ -215,4 +237,28 @@ input[type='number']::-webkit-outer-spin-button {
 
 .myAccountTabs li a.active button {
   color: #ff5252 !important;
+}
+
+button .css-gxw4l9-MuiCircularProgress-root {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.react-international-phone-input {
+  width: 100% !important;
+  height: 40px !important;
+}
+
+.react-international-phone-country-selector-button {
+  width: 55px !important;
+  height: 40px !important;
+}
+
+.css-10d30g3-MuiPaper-root-MuiDialog-paper {
+  min-width: 700px !important;
+}
+
+.iiz__hint {
+  bottom: 30px !important;
+  right: 15px !important;
 }

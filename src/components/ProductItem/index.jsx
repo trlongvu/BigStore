@@ -17,12 +17,12 @@ const ProductItem = () => {
         <Link to="/product/444">
           <div className="img h-56 overflow-hidden">
             <img
-              src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781297/1736781294242_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-0-202311201747.jpg"
+              src="https://media-cdn-v2.laodong.vn/storage/newsportal/2025/1/10/1448238/Rose-2.jpg"
               alt=""
               className=" w-full"
             />
             <img
-              src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
+              src="https://cdnphoto.dantri.com.vn/8-MpGec-uD4_gxVCv8rLBNhxAbk=/thumb_w/960/2020/12/16/ngam-dan-hot-girl-xinh-dep-noi-bat-nhat-nam-2020-docx-1608126694049.jpeg"
               alt=""
               className=" w-full absolute top-0 left-0 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-105"
             />

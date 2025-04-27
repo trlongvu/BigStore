@@ -9,22 +9,33 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import { IoEyeOff } from 'react-icons/io5';
 import { IoEye } from 'react-icons/io5';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { MyContext } from '../../App';
+import { postData } from '../../utils/api';
 
 const Login = () => {
   const context = useContext(MyContext);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading2, setIsLoading2] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formField, setFormField] = useState({
-    email: '22',
+    email: '',
     password: '',
   });
 
-  const history = useNavigate();
+  const navigate = useNavigate();
+
+  const onChangeInp = (e) => {
+    const { name, value } = e.target;
+    setFormField({
+      ...formField,
+      [name]: value,
+    });
+  };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -36,12 +47,64 @@ const Login = () => {
     event.preventDefault();
   };
 
-  const forgetPassword = () => {
-    if (formField.email !== '') {
-      history('/verify');
-      context.openAlertBox('success', 'Đã gửi mã về email của bạn');
+  const forgetPassword = (e) => {
+    e.preventDefault();
+    setIsLoading2(true);
+    if (formField.email.trim() !== '') {
+      localStorage.setItem('emailUser', formField.email);
+      localStorage.setItem('actionType', 'forget-password');
+      postData('/api/auth/forget-password', {
+        email: formField.email,
+      }).then((res) => {
+        console.log(res);
+        if (res.statusCode === 200) {
+          setIsLoading2(false);
+          context.openAlertBox('success', res.message);
+          navigate('/verify');
+        } else {
+          context.openAlertBox('error', res.message);
+          setIsLoading2(false);
+        }
+      });
+    } else {
+      context.openAlertBox('error', 'Vui nhập nhập email để lấy lại mật khẩu');
+      setIsLoading2(false);
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    if (formField.email.trim() === '') {
+      context.openAlertBox('error', 'Email dùng không được để trống');
+      setIsLoading(false);
+      return;
+    }
+    if (formField.password.trim() === '') {
+      context.openAlertBox('error', 'Mật khẩu dùng không được để trống');
+      setIsLoading(false);
+      return;
+    }
+    postData('/api/auth/login', formField, { withCredentials: true }).then(
+      (res) => {
+        if (res.statusCode === 200) {
+          setIsLoading(false);
+          localStorage.setItem('accessToken', res.accesstoken);
+          localStorage.setItem('refreshToken', res.refreshtoken);
+          context.setIsLogin(true);
+          setFormField({
+            email: '',
+            password: '',
+          });
+          navigate('/');
+        } else {
+          context.openAlertBox('error', res.message);
+          setIsLoading(false);
+        }
+      },
+    );
+  };
+
   return (
     <section className="section py-10">
       <div className="container">
@@ -49,7 +112,7 @@ const Login = () => {
           <h3 className=" font-semibold text-[16px] text-black uppercase mb-8">
             Đăng nhập
           </h3>
-          <form className=" w-full mt-5">
+          <form onSubmit={handleSubmit} className=" w-full mt-5">
             <div className=" form-group w-full mb-5 flex items-center gap-3">
               <AiOutlineMail className=" mt-4 text-2xl" />
               <TextField
@@ -57,7 +120,9 @@ const Login = () => {
                 label="Nhập email của bạn"
                 variant="standard"
                 className=" w-full"
-                name="name"
+                name="email"
+                value={formField.email}
+                onChange={onChangeInp}
               />
             </div>
             <div className=" form-group w-full mb-5 flex items-center gap-3">
@@ -73,6 +138,8 @@ const Login = () => {
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   name="password"
+                  value={formField.password}
+                  onChange={onChangeInp}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -96,11 +163,21 @@ const Login = () => {
                 className=" link cursor-pointer text-sm font-semibold"
                 onClick={forgetPassword}
               >
-                Quên mật khẩu?
+                {isLoading2 ? (
+                  <CircularProgress color="inherit" />
+                ) : (
+                  'Quên mật khẩu'
+                )}
               </a>
             </div>
             <div className="flex items-center my-5 w-full">
-              <Button className=" btn-org !w-full">Đăng nhập</Button>
+              <Button
+                disabled={isLoading}
+                type="submit"
+                className={`${isLoading ? 'opacity-70' : ''} btn-org !w-full`}
+              >
+                {isLoading ? <CircularProgress color="inherit" /> : 'Đăng nhập'}
+              </Button>
             </div>
             <p className=" mb-5">
               Chưa có tài khoản?

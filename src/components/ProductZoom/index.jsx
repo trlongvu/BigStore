@@ -38,7 +38,7 @@ const ProductZoom = () => {
                 onClick={() => goto(0)}
               >
                 <img
-                  src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736935391/1736935388943_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp"
+                  src="https://i.pinimg.com/736x/22/28/18/2228180667d6570945720139a15c68ba.jpg"
                   alt="Img"
                   className=" w-full transition group-hover:scale-105"
                 />
@@ -52,7 +52,7 @@ const ProductZoom = () => {
                 onClick={() => goto(1)}
               >
                 <img
-                  src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736935391/1736935388943_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp"
+                  src="https://i.pinimg.com/originals/b3/38/41/b338415ea17cb655ee090bb48eb50b61.jpg"
                   alt="Img"
                   className=" w-full transition group-hover:scale-105"
                 />
@@ -66,7 +66,7 @@ const ProductZoom = () => {
                 onClick={() => goto(2)}
               >
                 <img
-                  src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736935391/1736935388943_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp"
+                  src="https://i.pinimg.com/736x/eb/da/5a/ebda5a492dbc965c8bafe7350d41f4b7.jpg"
                   alt="Img"
                   className=" w-full transition group-hover:scale-105"
                 />
@@ -80,7 +80,7 @@ const ProductZoom = () => {
                 onClick={() => goto(3)}
               >
                 <img
-                  src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736935391/1736935388943_miss-ayse-women-s-multicolor-crepe-printed-top-product-images-rvvlrud6qm-0-202410111253.webp"
+                  src="https://i.pinimg.com/1200x/4f/ea/99/4fea9951b34ce1f0d913494437e0a163.jpg"
                   alt="Img"
                   className=" w-full transition group-hover:scale-105"
                 />
@@ -100,28 +100,28 @@ const ProductZoom = () => {
               <InnerImageZoom
                 zoomType="hover"
                 zoomScale={1}
-                src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
+                src="https://i.pinimg.com/736x/22/28/18/2228180667d6570945720139a15c68ba.jpg"
               />
             </SwiperSlide>
             <SwiperSlide>
               <InnerImageZoom
                 zoomType="hover"
                 zoomScale={1}
-                src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736936052/1736936051385_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-0-202308161431.webp"
+                src="https://i.pinimg.com/originals/b3/38/41/b338415ea17cb655ee090bb48eb50b61.jpg"
               />
             </SwiperSlide>
             <SwiperSlide>
               <InnerImageZoom
                 zoomType="hover"
                 zoomScale={1}
-                src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
+                src="https://i.pinimg.com/736x/eb/da/5a/ebda5a492dbc965c8bafe7350d41f4b7.jpg"
               />
             </SwiperSlide>
             <SwiperSlide>
               <InnerImageZoom
                 zoomType="hover"
                 zoomScale={1}
-                src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736936052/1736936051385_siril-georgette-brown-color-saree-with-blouse-piece-product-images-rvegeptjtj-0-202308161431.webp"
+                src="https://i.pinimg.com/1200x/4f/ea/99/4fea9951b34ce1f0d913494437e0a163.jpg"
               />
             </SwiperSlide>
           </Swiper>

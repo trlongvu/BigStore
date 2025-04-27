@@ -129,69 +129,69 @@ const ProductDetails = () => {
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Tên sản phẩm
                     </th>
-                    <td className="px-6 py-4 text-gray-900 dark:text-white">
+                    <td className="px-6 py-4 !text-gray-900 dark:text-white">
                       Áo sơ mi Jean cổ bẻ Layer Regular Fit dành cho nam
                     </td>
                   </tr>
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Thương hiệu
                     </th>
-                    <td className="px-6 py-4">RARE RABBIT</td>
+                    <td className="px-6 py-4 text-gray-900">RARE RABBIT</td>
                   </tr>
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Màu sắc
                     </th>
-                    <td className="px-6 py-4">Xanh</td>
+                    <td className="px-6 py-4 text-gray-900">Xanh</td>
                   </tr>
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Giá bán
                     </th>
-                    <td className="px-6 py-4 text-red-500 font-bold">
+                    <td className="px-6 py-4 !text-red-500 font-bold">
                       240.000đ
                     </td>
                   </tr>
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Chất liệu
                     </th>
-                    <td className="px-6 py-4">Jean</td>
+                    <td className="px-6 py-4 text-gray-900">Jean</td>
                   </tr>
                   <tr className="border-b border-gray-300 dark:border-gray-600">
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Loại
                     </th>
-                    <td className="px-6 py-4">Thời trang</td>
+                    <td className="px-6 py-4 text-gray-900">Thời trang</td>
                   </tr>
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
+                      className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                     >
                       Style
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 text-gray-900">
                       Phong cách trẻ trung, phù hợp cho các buổi tiệc, gặp gỡ
                       bạn bè
                     </td>

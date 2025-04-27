@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Search from '../Search';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -16,6 +16,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import { IoLogOut } from 'react-icons/io5';
+import { logoutUser } from '../../utils/api';
+import { IoLocation } from 'react-icons/io5';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -28,6 +30,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 const Header = () => {
   const context = useContext(MyContext);
+  const userData = context?.userData;
+
+  const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -38,6 +43,22 @@ const Header = () => {
     setTimeout(() => {
       setAnchorEl(null);
     }, 0);
+  };
+
+  const logout = () => {
+    setAnchorEl(null);
+    logoutUser('/api/auth/logout', { withCredentials: true }).then((res) => {
+      handleClose();
+      if (res.statusCode === 200) {
+        context.setIsLogin(false);
+        localStorage.removeItem('accessToken', res.accesstoken);
+        localStorage.removeItem('refreshToken', res.refreshtoken);
+        context.openAlertBox('success', res.message);
+        navigate('/');
+      } else {
+        context.openAlertBox('error', res.message);
+      }
+    });
   };
   return (
     <header className=" bg-white">
@@ -112,20 +133,26 @@ const Header = () => {
                       onClick={handleClick}
                     >
                       <Button className=" !size-8 !min-w-8 !rounded-full !bg-[#f1f1f1] ">
-                        <FaUser className=" text-lg text-[rgba(0,0,0,0.54)] group-hover:!text-[#ff5252] transition-all" />
+                        {userData?.avatar ? (
+                          <img
+                            src={userData?.avatar}
+                            className=" w-full size-8 min-w-8 rounded-full"
+                          />
+                        ) : (
+                          <FaUser className=" text-lg text-[rgba(0,0,0,0.54)] group-hover:!text-[#ff5252] transition-all" />
+                        )}
                       </Button>
                       <div className="info flex flex-col">
-                        <h4 className=" font-medium text-xs">Sơn Tùng MTP</h4>
-                        <span className=" text-[10px]">
-                          sontungmtp@gmai.com
-                        </span>
+                        <h4 className=" font-medium text-xs">
+                          {userData?.username}
+                        </h4>
+                        <span className=" text-[10px]">{userData?.email}</span>
                       </div>
                       <Menu
                         anchorEl={anchorEl}
                         id="account-menu"
                         open={open}
                         onClose={handleClose}
-                        onClick={handleClick}
                         slotProps={{
                           paper: {
                             elevation: 0,
@@ -170,6 +197,12 @@ const Header = () => {
                             Tài khoản
                           </MenuItem>
                         </Link>
+                        <Link to="/address" onClick={handleClose}>
+                          <MenuItem className="link !text-[13px] flex items-center gap-2">
+                            <IoLocation className=" text-sm" />
+                            Địa chỉ
+                          </MenuItem>
+                        </Link>
                         <Link to="/order" onClick={handleClose}>
                           <MenuItem className="link !text-[13px] flex items-center gap-2">
                             <FaShoppingCart className=" text-sm" />
@@ -183,7 +216,7 @@ const Header = () => {
                           </MenuItem>
                         </Link>
                         <Divider />
-                        <Link to="/logout" onClick={handleClose}>
+                        <Link to="/" onClick={logout}>
                           <MenuItem className="link !text-[13px] flex items-center gap-1">
                             <IoLogOut className=" text-lg" />
                             Đăng xuất
