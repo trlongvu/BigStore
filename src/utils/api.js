@@ -37,8 +37,7 @@ export const logoutUser = async (url) => {
     );
     return data;
   } catch (error) {
-    console.log(`Lỗi: ${error}`);
-    return error;
+    return handleError(error);
   }
 };
 
@@ -55,39 +54,58 @@ export const fetchDataFromApi = async (url) => {
 
     return data;
   } catch (error) {
-    console.log(`Lỗi: ${error}`);
-    return error;
+    return handleError(error);
   }
 };
 
 export const uploadImage = async (url, updatedData) => {
-  const params = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-    },
-  };
-  const { data } = await axios.put(apiUrl + url, updatedData, params);
-  return data;
+  try {
+    const params = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+    const { data } = await axios.patch(apiUrl + url, updatedData, params);
+    return data;
+  } catch (error) {
+    return handleError(error);
+  }
 };
 
 export const editData = async (url, updatedData) => {
-  const params = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      'Content-Type': 'application/json',
-    },
-  };
-  const { data } = await axios.put(apiUrl + url, updatedData, params);
-  return data;
+  try {
+    const params = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data } = await axios.patch(apiUrl + url, updatedData, params);
+    return data;
+  } catch (error) {
+    return handleError(error);
+  }
 };
 
 export const deleteData = async (url) => {
-  const params = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      'Content-Type': 'application/json',
-    },
-  };
-  const { data } = await axios.delete(apiUrl + url, params);
-  return data;
+  try {
+    const params = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data } = await axios.delete(apiUrl + url, params);
+    return data;
+  } catch (error) {
+    return handleError(error);
+  }
+};
+
+const handleError = (error) => {
+  if (error.response && error.response.data) {
+    return error.response.data;
+  }
+  return { success: false, message: 'Lỗi kết nối đến server.' };
 };

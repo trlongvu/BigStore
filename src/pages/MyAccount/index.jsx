@@ -32,8 +32,8 @@ const MyAccount = () => {
   const [phone, setPhone] = useState('');
   const [userId, setUserId] = useState('');
   const [formField, setFormField] = useState({
-    username: '',
     email: '',
+    username: '',
     phone: '',
   });
   const [changePassword, setChangePassword] = useState({
@@ -46,7 +46,8 @@ const MyAccount = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    if (token === null) {
+    if (token === null || token === undefined || token === '') {
+      context.openAlertBox('error', 'Vui lòng đăng nhập để sử dụng dịch vụ');
       navigate('/login');
     }
   }, [context.isLogin]);
@@ -104,6 +105,9 @@ const MyAccount = () => {
       ...formField,
       [name]: value,
     });
+  };
+  const onChangeInp2 = (e) => {
+    const { name, value } = e.target;
 
     setChangePassword({
       ...changePassword,
@@ -113,25 +117,26 @@ const MyAccount = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (formField.username.trim() === '') {
+    if (!formField.username || formField.username.trim() === '') {
       context.openAlertBox('error', 'Tên người dùng không được để trống');
       setIsLoading(false);
       return;
     }
-    if (formField.email.trim() === '') {
-      context.openAlertBox('error', 'Email không được để trống');
-      setIsLoading(false);
-      return;
-    }
-    if (formField.phone.trim() === '') {
+    // if (!formField.email || formField.email.trim() === '') {
+    //   context.openAlertBox('error', 'Email không được để trống');
+    //   setIsLoading(false);
+    //   return;
+    // }
+    if (!formField.phone || formField.phone.trim() === '') {
       context.openAlertBox('error', 'Số điện thoại không được để trống');
       setIsLoading(false);
       return;
     }
-    editData(`/api/users/${userId}}`, formField, {
+    editData(`/api/users/${userId}`, formField, {
       withCredentials: true,
     }).then((res) => {
-      if (res.statusCode === 200) {
+      console.log(res);
+      if (res.success) {
         setIsLoading(false);
         context.openAlertBox('success', res.message);
         context.setUserData(res.data);
@@ -141,8 +146,8 @@ const MyAccount = () => {
           phone: '',
         });
       } else {
-        context.openAlertBox('error', res.message);
         setIsLoading(false);
+        context.openAlertBox('error', res.message);
       }
     });
   };
@@ -238,17 +243,18 @@ const MyAccount = () => {
                     value={formField.email}
                     name="email"
                     type="email"
-                    disabled={isLoading}
+                    disabled
                   />
                 </div>
               </div>
               <div className=" flex items-center gap-5 mb-5">
                 <div className=" w-[50%]">
                   <TextField
-                    label="1/1/2000"
+                    label="Trạng thái"
                     variant="outlined"
                     size="small"
                     className=" w-full"
+                    value="Đang hoạt động"
                     disabled
                   />
                 </div>
@@ -303,7 +309,7 @@ const MyAccount = () => {
                       id="oldPass"
                       type={showPassword3 ? 'text' : 'password'}
                       name="oldPass"
-                      onChange={onChangeInp}
+                      onChange={onChangeInp2}
                       value={changePassword.oldPass}
                       disabled={isLoading2}
                       endAdornment={
@@ -338,7 +344,7 @@ const MyAccount = () => {
                       id="password"
                       type={showPassword ? 'text' : 'password'}
                       name="password"
-                      onChange={onChangeInp}
+                      onChange={onChangeInp2}
                       value={changePassword.password}
                       disabled={isLoading2}
                       endAdornment={
@@ -373,7 +379,7 @@ const MyAccount = () => {
                       id="comfirmPass"
                       type={showPassword2 ? 'text' : 'password'}
                       name="comfirmPass"
-                      onChange={onChangeInp}
+                      onChange={onChangeInp2}
                       value={changePassword.comfirmPass}
                       disabled={isLoading2}
                       endAdornment={

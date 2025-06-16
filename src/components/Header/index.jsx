@@ -18,6 +18,7 @@ import Divider from '@mui/material/Divider';
 import { IoLogOut } from 'react-icons/io5';
 import { logoutUser } from '../../utils/api';
 import { IoLocation } from 'react-icons/io5';
+import { truncate } from '../../helpers/truncate';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -47,9 +48,12 @@ const Header = () => {
 
   const logout = () => {
     setAnchorEl(null);
-    logoutUser('/api/auth/logout', { withCredentials: true }).then((res) => {
+    logoutUser(
+      `/api/auth/logout?token=${localStorage.getItem('accessToken')}`,
+      { withCredentials: true },
+    ).then((res) => {
       handleClose();
-      if (res.statusCode === 200) {
+      if (res.success) {
         context.setIsLogin(false);
         localStorage.removeItem('accessToken', res.accesstoken);
         localStorage.removeItem('refreshToken', res.refreshtoken);
@@ -144,9 +148,11 @@ const Header = () => {
                       </Button>
                       <div className="info flex flex-col">
                         <h4 className=" font-medium text-xs">
-                          {userData?.username}
+                          {truncate(userData?.username, 15)}
                         </h4>
-                        <span className=" text-[10px]">{userData?.email}</span>
+                        <span className=" text-[10px]">
+                          {truncate(userData?.email, 20)}
+                        </span>
                       </div>
                       <Menu
                         anchorEl={anchorEl}

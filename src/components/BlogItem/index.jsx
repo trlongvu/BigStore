@@ -8,11 +8,11 @@ const BlogItem = () => {
     <div className="blogItem my-10 ">
       <div className="imgWrapper w-full overflow-hidden rounded-md cursor-pointer relative group">
         <img
-          src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1737097090/1737097087465_blog-001-1536x872.webp"
+          src="https://images.unsplash.com/photo-1749456289357-4e5cbffe9fb3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8"
           alt="blog image"
           className=" w-full transition-all group-hover:scale-105 group-hover:rotate-1"
         />
-        <span className=" absolute bottom-4 right-4 flex items-center justify-center text-white bg-org gap-1 rounded-md p-1 text-xs font-medium">
+        <span className=" absolute bottom-4 right-4 flex items-center justify-center text-white bg-primary gap-1 rounded-md p-1 text-xs font-medium">
           <WiTime9 className=" text-lg" /> 2025-02-15
         </span>
       </div>

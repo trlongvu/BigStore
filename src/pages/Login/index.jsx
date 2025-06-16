@@ -57,7 +57,7 @@ const Login = () => {
         email: formField.email,
       }).then((res) => {
         console.log(res);
-        if (res.statusCode === 200) {
+        if (res.success) {
           setIsLoading2(false);
           context.openAlertBox('success', res.message);
           navigate('/verify');
@@ -87,7 +87,8 @@ const Login = () => {
     }
     postData('/api/auth/login', formField, { withCredentials: true }).then(
       (res) => {
-        if (res.statusCode === 200) {
+        console.log(res);
+        if (res.success) {
           setIsLoading(false);
           localStorage.setItem('accessToken', res.accesstoken);
           localStorage.setItem('refreshToken', res.refreshtoken);
@@ -100,6 +101,10 @@ const Login = () => {
         } else {
           context.openAlertBox('error', res.message);
           setIsLoading(false);
+          if (res.statusCode === 403) {
+            localStorage.setItem('emailUser', formField.email);
+            navigate('/verify');
+          }
         }
       },
     );

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { IoCloseOutline } from 'react-icons/io5';
@@ -6,8 +5,9 @@ import './style.css';
 import CategoryCollapse from '../../CategoryCollapse';
 
 const CategoryPanel = (props) => {
+  const { isOpenCategoryPanel, setIsOpenCategoryPanel } = props;
   const toggleDrawer = (newOpen) => () => {
-    props.setIsOpenCategoryPanel(newOpen);
+    setIsOpenCategoryPanel(newOpen);
   };
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" className="categoryPanel">
@@ -24,7 +24,7 @@ const CategoryPanel = (props) => {
   );
   return (
     <div>
-      <Drawer open={props.isOpenCategoryPanel} onClose={toggleDrawer(false)}>
+      <Drawer open={isOpenCategoryPanel} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
     </div>

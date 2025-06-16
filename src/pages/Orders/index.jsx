@@ -37,79 +37,79 @@ const Orders = () => {
                     <tr className="border-b text-center border-gray-300 dark:border-gray-600">
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         &nbsp;
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Mã đơn hàng
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Mã thanh toán
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Họ và tên
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Số điện thoại
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Địa chỉ
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Mã pin
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Địa chỉ
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Tổng tiền
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Email
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Mã người dùng
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Trạng thái đơn hàng
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-4 font-semibold text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
+                        className="px-6 py-4 font-semibold !text-gray-900 dark:text-white border-r border-gray-300 whitespace-nowrap dark:border-gray-600"
                       >
                         Ngày đặt hàng
                       </th>
@@ -117,7 +117,7 @@ const Orders = () => {
                   </thead>
                   <tbody>
                     <tr className="border-y border-gray-300 dark:border-gray-600 text-center">
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r  border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r  border-gray-300 dark:border-gray-600">
                         <Button
                           className=" !size-8 !min-w-8 !rounded-full !bg-[#f1f1f1]"
                           onClick={() => isShowOrderProduct(0)}
@@ -129,42 +129,42 @@ const Orders = () => {
                           )}
                         </Button>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" link cursor-pointer">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" link cursor-pointer">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" block w-56">lll</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">
                           <Badge status="confirm" />
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
                     </tr>
@@ -177,31 +177,31 @@ const Orders = () => {
                                 <tr className="border-b text-center border-gray-300 dark:border-gray-600">
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Mã sản phẩm
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Tên sản phẩm
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Hình ảnh
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Số lượng
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Giá
                                   </th>
@@ -209,46 +209,46 @@ const Orders = () => {
                               </thead>
                               <tbody>
                                 <tr className="border-b border-gray-300 dark:border-gray-600 text-center">
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 ">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 ">
                                     <span className=" link cursor-pointer">
                                       SP1
                                     </span>
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     Sản phẩm 1
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
                                     <img
                                       src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
                                       className=" size-10 object-cover rounded-md"
                                     />
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     5
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     500.000đ
                                   </td>
                                 </tr>
                                 <tr className="border-b border-gray-300 dark:border-gray-600 text-center">
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 ">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 ">
                                     <span className=" link cursor-pointer">
                                       SP1
                                     </span>
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     Sản phẩm 1
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
                                     <img
                                       src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
                                       className=" size-10 object-cover rounded-md"
                                     />
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     5
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     500.000đ
                                   </td>
                                 </tr>
@@ -259,7 +259,7 @@ const Orders = () => {
                       </tr>
                     )}
                     <tr className="border-y border-gray-300 dark:border-gray-600 text-center">
-                      <td className="px-6 py-4 text-gray-900 dark:text-white  border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white  border-r border-gray-300 dark:border-gray-600">
                         <Button
                           className=" !size-8 !min-w-8 !rounded-full !bg-[#f1f1f1]"
                           onClick={() => isShowOrderProduct(1)}
@@ -271,42 +271,42 @@ const Orders = () => {
                           )}
                         </Button>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" link cursor-pointer">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" link cursor-pointer">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className=" block w-56">lll</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">
                           <Badge status="pending" />
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
+                      <td className="px-6 py-4 !text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600">
                         <span className="">ok</span>
                       </td>
                     </tr>
@@ -319,31 +319,31 @@ const Orders = () => {
                                 <tr className="border-b text-center border-gray-300 dark:border-gray-600">
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Mã sản phẩm
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Tên sản phẩm
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Hình ảnh
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Số lượng
                                   </th>
                                   <th
                                     scope="col"
-                                    className="px-6 py-4 font-semibold text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
+                                    className="px-6 py-4 font-semibold !text-gray-900 dark:text-white whitespace-nowrap dark:border-gray-600"
                                   >
                                     Giá
                                   </th>
@@ -351,46 +351,46 @@ const Orders = () => {
                               </thead>
                               <tbody>
                                 <tr className="border-b border-gray-300 dark:border-gray-600 text-center">
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 ">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 ">
                                     <span className=" link cursor-pointer">
                                       SP1
                                     </span>
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     Sản phẩm 1
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
                                     <img
                                       src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
                                       className=" size-10 object-cover rounded-md"
                                     />
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     5
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     500.000đ
                                   </td>
                                 </tr>
                                 <tr className="border-b border-gray-300 dark:border-gray-600 text-center">
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 ">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 ">
                                     <span className=" link cursor-pointer">
                                       SP1
                                     </span>
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     Sản phẩm 1
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600 flex items-center justify-center">
                                     <img
                                       src="https://res.cloudinary.com/duqoh8gf5/image/upload/v1736781298/1736781294264_montrez-men-light-blue-solid-jacket-product-images-rvwmdqy2dw-1-202311201747.jpg"
                                       className=" size-10 object-cover rounded-md"
                                     />
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     5
                                   </td>
-                                  <td className="px-6 py-4 text-gray-900 dark:text-white dark:border-gray-600">
+                                  <td className="px-6 py-4 !text-gray-900 dark:text-white dark:border-gray-600">
                                     500.000đ
                                   </td>
                                 </tr>

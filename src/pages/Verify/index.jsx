@@ -24,7 +24,7 @@ const Verify = () => {
         email: localStorage.getItem('emailUser'),
         otp: otp,
       }).then((res) => {
-        if (res.statusCode === 200) {
+        if (res.success) {
           context.openAlertBox('success', res.message);
           localStorage.removeItem('emailUser');
           navigate('/login');

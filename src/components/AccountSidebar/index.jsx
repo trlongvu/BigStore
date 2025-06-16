@@ -52,11 +52,17 @@ const AccountSidebar = () => {
           selectedImages.push(file);
           formdata.append('avatar', file);
           console.log(formdata);
-          uploadImage('/api/users/user-avatar', formdata).then((res) => {
-            setUploading(false);
-            let avatar = [];
-            avatar.push(res.avatar);
-            setPreviews(avatar);
+          uploadImage(apiEndPoint, formdata).then((res) => {
+            if (res.success) {
+              setUploading(false);
+              let avatar = [];
+              avatar.push(res.avatar);
+              setPreviews(avatar);
+            } else {
+              context.openAlertBox('error', res.message);
+              setUploading(false);
+              return false;
+            }
           });
         } else {
           context.openAlertBox('error', 'Chỉ cho phép tệp ảnh');

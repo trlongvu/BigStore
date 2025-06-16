@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RiMenu2Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import CategoryPanel from './CategoryPanel';
 const Navigation = () => {
   const [isOpenCategoryPanel, setIsOpenCategoryPanel] = useState(false);
   const openCategoryPanel = () => {
-    setIsOpenCategoryPanel(true);
+    setIsOpenCategoryPanel(!isOpenCategoryPanel);
   };
 
   return (
@@ -25,8 +25,8 @@ const Navigation = () => {
               <MdKeyboardArrowDown />
             </Button>
           </div>
-          <div className="col_2 w-[63%]">
-            <ul className=" flex items-center gap-3 nav">
+          <div className="col_2 w-[63%] flex items-center justify-between px-10">
+            <ul className=" flex items-center gap-3 w-full nav">
               <li className=" list-none">
                 <Link
                   to="/"
@@ -40,7 +40,7 @@ const Navigation = () => {
                   to="/productListing"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Thời trang
+                  Cơm
                 </Link>
 
                 <div className="submenu absolute top-[120%] left-[0%] min-w-[200px] bg-white shadow-md opacity-0 transition-all">
@@ -48,14 +48,14 @@ const Navigation = () => {
                     <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
-                          Thời trang Nam
+                          Cơm tấm
                         </Button>
                       </Link>
                     </li>
                     <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
-                          Thời trang Nữ
+                          Cơm gà
                         </Button>
                       </Link>
                     </li>
@@ -63,14 +63,55 @@ const Navigation = () => {
                     <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
-                          Thời trang Trung niên
+                          Cơm chiên
                         </Button>
                       </Link>
                     </li>
                     <li className=" list-none w-full">
                       <Link to="/" className=" w-full">
                         <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
-                          Thời trang Trẻ em
+                          Cơm văn phòng
+                        </Button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li className=" list-none relative">
+                <Link
+                  to="/productListing"
+                  className=" link transition text-[14px] font-[600]"
+                >
+                  Mì & Phở
+                </Link>
+                <div className="submenu absolute top-[120%] left-[0%] min-w-[200px] bg-white shadow-md opacity-0 transition-all">
+                  <ul>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm tấm
+                        </Button>
+                      </Link>
+                    </li>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm gà
+                        </Button>
+                      </Link>
+                    </li>
+
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm chiên
+                        </Button>
+                      </Link>
+                    </li>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm văn phòng
                         </Button>
                       </Link>
                     </li>
@@ -79,10 +120,10 @@ const Navigation = () => {
               </li>
               <li className=" list-none">
                 <Link
-                  to="/productListing"
+                  to="/"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Thiết bị điện tử
+                  Đồ ăn nhanh
                 </Link>
               </li>
               <li className=" list-none">
@@ -90,7 +131,7 @@ const Navigation = () => {
                   to="/"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Túi sách
+                  Món chay
                 </Link>
               </li>
               <li className=" list-none">
@@ -98,7 +139,7 @@ const Navigation = () => {
                   to="/"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Giày dép
+                  Đồ uống
                 </Link>
               </li>
               <li className=" list-none">
@@ -106,32 +147,49 @@ const Navigation = () => {
                   to="/"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Đồ ăn
+                  Tráng miệng
                 </Link>
               </li>
-              <li className=" list-none">
+              <li className=" list-none relative">
                 <Link
                   to="/"
                   className=" link transition text-[14px] font-[600]"
                 >
-                  Làm đẹp
+                  Đồ ăn vặt
                 </Link>
-              </li>
-              <li className=" list-none">
-                <Link
-                  to="/"
-                  className=" link transition text-[14px] font-[600]"
-                >
-                  Sức khỏe
-                </Link>
-              </li>
-              <li className=" list-none">
-                <Link
-                  to="/"
-                  className=" link transition text-[14px] font-[600]"
-                >
-                  Trang sức
-                </Link>
+                <div className="submenu absolute top-[120%] left-[0%] min-w-[200px] bg-white shadow-md opacity-0 transition-all">
+                  <ul>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm tấm
+                        </Button>
+                      </Link>
+                    </li>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm gà
+                        </Button>
+                      </Link>
+                    </li>
+
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm chiên
+                        </Button>
+                      </Link>
+                    </li>
+                    <li className=" list-none w-full">
+                      <Link to="/" className=" w-full">
+                        <Button className=" !text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !capitalize">
+                          Cơm văn phòng
+                        </Button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>

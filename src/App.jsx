@@ -39,8 +39,15 @@ function App() {
     const token = localStorage.getItem('accessToken');
     if (token !== undefined && token !== null && token !== '') {
       setIsLogin(true);
-      fetchDataFromApi(`/api/users/444`).then((res) => {
-        setUserData(res.data);
+      fetchDataFromApi(`/api/users/user-details`).then((res) => {
+        if (res.success) {
+          setUserData(res.data);
+          return;
+        }
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        openAlertBox('error', res.message);
+        setIsLogin(false);
       });
     } else {
       setIsLogin(false);

@@ -57,7 +57,7 @@ const Register = () => {
       return;
     }
     postData('/api/auth/register', formField).then((res) => {
-      if (res.statusCode === 201) {
+      if (res.success) {
         setIsLoading(false);
         localStorage.setItem('emailUser', formField.email);
         setFormField({

@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   font-family: 'Montserrat', serif !important;
@@ -29,7 +31,7 @@ p {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   margin: auto;
 }
 
@@ -57,10 +59,6 @@ p {
   color: #fff !important;
 }
 
-.bg-org {
-  background-color: #ff5252;
-}
-
 .text-primary {
   color: #ff5252;
 }
@@ -70,6 +68,8 @@ p {
 }
 
 header .top-strip {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .link:hover {
@@ -91,6 +91,10 @@ header .top-strip {
   height: 45px;
   min-width: 45px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.collapse-cat .ReactCollapse--collapse {
+  width: 100% !important;
 }
 
 .swiper-button-prev::after,

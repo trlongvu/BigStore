@@ -29,7 +29,7 @@ const ProductItemListView = () => {
             />
           </div>
         </Link>
-        <span className="discount flex items-center absolute top-2.5 left-2.5 z-50 bg-org text-white rounded-sm p-1 text-[12px] font-medium ">
+        <span className="discount flex items-center absolute top-2.5 left-2.5 z-50 bg-primary text-white rounded-sm p-1 text-[12px] font-medium ">
           - 10%
         </span>
 
